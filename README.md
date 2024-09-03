@@ -20,4 +20,4 @@ module "update-vcf-esx-system-pwd" {
   account_type          = "SYSTEM"
 }
 ```
-You can see an complete example in the docs folder.
+You can see a complete example in the docs folder.

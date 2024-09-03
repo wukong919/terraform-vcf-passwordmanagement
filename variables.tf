@@ -5,7 +5,7 @@ variable "sddc_manager_username" {
 
 variable "sddc_manager_password" {
   description = "Password used to authenticate against an SDDC Manager instance"
-  default     = "VMw@re1!"
+  default     = "VMware123456!"
 }
 
 variable "sddc_manager_host" {
@@ -26,9 +26,4 @@ variable "account_type" {
 variable "rotation_frequency_days" {
   type    = number
   default = 90
-}
-
-variable "rotation_frequency_minutes" {
-  type    = number
-  default = 15
 }

@@ -1,7 +1,7 @@
 # QuickStart Guide
 
-## How this module help you?
-This module leverages VMware Cloud Foundation Terraform Provider to automatically rotate the Passwords used in the VCF instance Management Automation. It greatly simplifies the password managements in a large scale VMware Cloud Foundation environment.
+## How would the module help you?
+This module leverages the VMware Cloud Foundation Terraform Provider to automatically rotate the passwords for different systems (e.g., ESXi, vCenter, NSX, VRSLCM, VROPS, VRA etc.) deployed in your VCF instance. It greatly simplifies password management in a large-scale VMware Cloud Foundation environment.
 
 Also, the module will help enforce your password rotation policy by using the `rotation_frequency_days` parameter.
 
@@ -20,4 +20,4 @@ module "update-vcf-esx-system-pwd" {
   account_type          = "SYSTEM"
 }
 ```
-You can see the complete example in the docs folder.
+You can see an complete example in the docs folder.

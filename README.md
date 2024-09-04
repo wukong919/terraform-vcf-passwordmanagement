@@ -13,11 +13,12 @@ One quick example here:
 
 ```hcl
 module "update-vcf-esx-system-pwd" {
-  source                = "github.com/wukong919/terraform-vcf-passwordmanagement"
-  sddc_manager_username = var.sddc_manager_username
-  sddc_manager_password = var.sddc_manager_password
-  resource_type         = "ESXI"
-  account_type          = "SYSTEM"
+  source                  = "wukong919/passwordmanagement/vcf"
+  version                 = "0.2.1"
+  sddc_manager_host     = var.sddc_manager_host
+  rotation_frequency_days = var.rotation_frequency_days
+  resource_type           = var.resource_type
+  account_type            = var.account_type
 }
 ```
 You can see a complete example in the docs folder.

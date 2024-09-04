@@ -14,10 +14,10 @@ provider "vcf" {
   allow_unverified_tls  = true
 }
 
-module "update-vcf-esx-service-pwd" {
-  source                = "./modules/pass"
-  sddc_manager_username = var.sddc_manager_username
-  sddc_manager_password = var.sddc_manager_password
-  resource_type         = "ESXI"
-  account_type          = "SERVICE"
+module "passwordmanagement" {
+  source                  = "wukong919/passwordmanagement/vcf"
+  sddc_manager_host     = var.sddc_manager_host
+  rotation_frequency_days = var.rotation_frequency_days
+  resource_type           = var.resource_type
+  account_type            = var.account_type
 }

@@ -6,7 +6,7 @@ variable "sddc_manager_username" {
 
 variable "sddc_manager_password" {
   description = "Password used to authenticate against an SDDC Manager instance"
-  default     = "VMware1!123456"
+  default     = "VMware123456!"
   sensitive   = true
 }
 
@@ -14,4 +14,22 @@ variable "sddc_manager_host" {
   description = "Fully qualified domain name of an SDDC Manager instance"
   default     = "sfo-vcf01.sfo.rainpole.io"
   type        = string
+}
+
+variable "rotation_frequency_days" {
+  description = "After how many days the credentials will be rotated. Default is 90 days"
+  default     = 30
+  type        = number
+}
+
+variable "resource_type" {
+  description = "The type of the resource.One among ESXI, VCENTER, PSC, NSX_MANAGER, NSX_CONTROLLER, NSXT_EDGE, NSXT_MANAGER, VRLI, VROPS, VRA, WSA, VRSLCM, VXRAIL_MANAGER, NSX_ALB, BACKUP"
+  type    = string
+  default = "ESXI"
+}
+
+variable "account_type" {
+  description = "One among USER, SYSTEM, SERVICE"
+  type    = string
+  default = "USER"
 }

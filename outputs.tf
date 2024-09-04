@@ -1,4 +1,5 @@
 output "secrets" {
+  description = " passwords metadata"
   value = {
     for key, i in vcf_credentials_rotate.rotate : key => {
       resource_name    = i.resource_name

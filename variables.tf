@@ -3,11 +3,11 @@ variable "sddc_manager_host" {
 }
 
 variable "resource_type" {
-  type    = string
+  type = string
 }
 
 variable "account_type" {
-  type    = string
+  type = string
 }
 
 variable "rotation_frequency_days" {

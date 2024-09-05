@@ -11,6 +11,7 @@ Also, the module will help enforce your password rotation policy by using the `r
 ## How to use this module?
 
 ### Basic Use Case
+Below is an example of how to rotate a single type of VCF passwords with this `passwordmanagement` module.
 
 ```hcl
 module "update-vcf-esx-system-pwd" {
@@ -24,7 +25,7 @@ module "update-vcf-esx-system-pwd" {
 ### Advanced Use Case
 In the Github helper folder, a HashiCorp `vault` module is included. When used together with the `passwordmanagement` module, this `vault` module synchronizes the changes with your HashiCorp Vault system whenever VCF passwords are rotated. This helps VCF customers achieve end-to-end password management automation. The entire process operates without any human intervention, significantly minimizing the risk of password exposure or leaks.
 
-Below is an example on how to use these two modules together.
+Below is an example of how to use these two modules together.
 
 `main.tf`
 ```hcl

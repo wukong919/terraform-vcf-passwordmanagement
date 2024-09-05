@@ -18,15 +18,14 @@ locals {
 resource "vault_kv_secret_v2" "vault_secrets" {
   for_each = local.transformed_secrets
 
-  mount = "vcf"
-  # name                = "${each.value.secret_id}-${each.value.resource_name}-${each.value.user_name}"
+  mount = var.vault_vcf_passwords_mountpath
   name                = "${each.value.resource_name}-${each.value.user_name}"
   cas                 = 1
   delete_all_versions = true
 
   data_json = jsonencode({
     username = each.value.user_name
-    password = each.value.password # Replace with the actual rotated password
+    password = each.value.password
   })
 
   custom_metadata {
@@ -39,15 +38,6 @@ resource "vault_kv_secret_v2" "vault_secrets" {
       vcf_domain       = each.value.domain
       last_rotate_time = each.value.last_rotate_time
       sddc_manager     = each.value.sddc_manager
-    }
-  }
-}
-
-output "secrets_metadata" {
-  value = {
-    for key, vault_secret in vault_kv_secret_v2.vault_secrets : key => {
-      custom_metadata = vault_secret.custom_metadata
-      key_version     = vault_secret.metadata.version
     }
   }
 }

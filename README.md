@@ -64,6 +64,7 @@ module "update-vault" {
   for_each      = var.system_secrets
   source        = "github.com/wukong919/terraform-vcf-passwordmanagement/helper/vault"
   vault_address = var.vault_address
+  vault_vcf_passwords_mountpath = var.vault_vcf_passwords_mountpath
   secrets       = module.update-pwd[each.key].secrets
 }
 
@@ -82,26 +83,37 @@ variable "sddc_manager_username" {
   default     = "administrator@vsphere.local"
   type        = string
 }
+
 variable "sddc_manager_password" {
   description = "Password used to authenticate against an SDDC Manager instance"
   default     = "VMware12345!"
   sensitive   = true
 }
+
 variable "sddc_manager_host" {
   description = "Fully qualified domain name of an SDDC Manager instance"
   default     = "sfo-vcf01.sfo.rainpole.io"
   type        = string
 }
+
 variable "vault_address" {
   description = "hashicorp vault"
   default     = "http://10.221.78.150:8200"
   type        = string
 }
+
+variable "vault_vcf_passwords_mountpath" {
+  description = "hashicorp vault mounth path for VCF Passwords"
+  default     = "vcf"
+  type        = string
+}
+
 variable "rotation_frequency_day" {
   description = "secret rotation frequency"
   default     = 15
   type        = number
 }
+
 variable "system_secrets" {
   type = map(any)
   default = {
